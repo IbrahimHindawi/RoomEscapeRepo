@@ -21,7 +21,11 @@ void UPositionReporter::BeginPlay()
 	Super::BeginPlay();
 
 	FString ObjectName = GetOwner()->GetName();
-	UE_LOG(LogTemp, Warning, TEXT("Position Reporter Enabled on: %s"), *ObjectName)
+	//FString ObjectPos = "X=1Y=2Z=3";
+	FString ObjectPos = GetOwner()->GetActorLocation().ToString();
+	FString ObjectRot = GetOwner()->GetActorRotation().ToString();
+	FString ObjectScl = GetOwner()->GetActorScale().ToString();
+	UE_LOG(LogTemp, Warning, TEXT("%s is at: %s, rotated at: %s, scaled at %s"), *ObjectName, *ObjectPos, *ObjectRot, *ObjectScl)
 
 	// ...
 	
